@@ -10,9 +10,9 @@ namespace Sistema.Model
 {
     public class UsuarioModel
     {
-        public static int Inserir(object objTabela)
+        public static int Inserir(UsuarioEnt objTabela)
         {
-            throw new NotImplementedException();
+            return new UsuarioControl().Inserir(objTabela);
         }
     }
 }

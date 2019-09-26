@@ -63,10 +63,19 @@ namespace Sistema.View
                        objTabela.Senha = txtSenha.Text;
 
                         int x = UsuarioModel.Inserir(objTabela);
+                        if (x > 0)
+                        {
+                            MessageBox.Show(String.Format("Usuário {0} inserido com sucesso", txtNome.Text));
+                        }
+                        else
+                        {
+                            MessageBox.Show("Dado não inserido!");
+                        }
+
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Ocorreu um erro");
+                        MessageBox.Show("Ocorreu um erro" + ex.Message);
                         throw;
                     }
                     break;
@@ -99,6 +108,18 @@ namespace Sistema.View
         private void frmCadusuario_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalvar_Click_1(object sender, EventArgs e)
+        {
+            opc = "Salvar";
+            iniciarOpc();
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+            opc = "Editar";
+            iniciarOpc();
         }
     }
 
